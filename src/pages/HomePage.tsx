@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import gsap from 'gsap';
 import Welcome from '../components/Welcome';
 import SocialLinks from '../components/socials/SocialLinks';
+import ViewCounter from '../components/ViewCounter';
 
 export default function HomePage() {
   useEffect(() => {
@@ -22,6 +23,9 @@ export default function HomePage() {
         <Welcome />
       </div>
       <SocialLinks className="mt-16" />
+      <div className="flex justify-center mt-6">
+        <ViewCounter />
+      </div>
     </main>
   );
 }
