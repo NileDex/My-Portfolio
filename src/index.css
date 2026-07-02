@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Roboto', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-brand-bg: #050505;
+  --color-brand-card: #0F0F0F;
+  --color-brand-accent: #FFFFFF;
+  --color-brand-muted: #71717A;
+  --color-brand-text: #FAFAFA;
+}
+
+.tech-grid {
+  background-color: #050505;
+}
+
+.tech-border {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-border:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
+}
+
+.glow-text {
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+}
+
+/* Liquid glass card with a lit right edge, used for the Web2/Web3/Community Dev cards */
+.glass-card {
+  position: relative;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.015) 100%);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    0 12px 32px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card::after {
+  content: '';
+  position: absolute;
+  top: 8%;
+  bottom: 8%;
+  right: 0;
+  width: 2px;
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.85) 50%, transparent 100%);
+  opacity: 0.55;
+  transition: opacity 0.4s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.2),
+    6px 0 40px rgba(255, 255, 255, 0.12),
+    0 20px 44px rgba(0, 0, 0, 0.55);
+}
+
+.glass-card:hover::after {
+  opacity: 1;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.7);
+}
+
+/* Circular/square liquid glass buttons, used for the social icons and card icon badges */
+.glass-icon,
+.glass-icon-square {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-icon {
+  border-radius: 9999px;
+}
+
+.glass-icon-square {
+  border-radius: 12px;
+}
+
+.glass-icon:hover,
+.glass-icon-square:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    0 0 22px rgba(255, 255, 255, 0.25),
+    0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+/* Pill-shaped liquid glass, used for the docked category sidebar nav */
+.glass-pill {
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    0 8px 24px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+/* Flush against the viewport edge: square off the side touching the edge */
+.glass-pill-dock {
+  border-radius: 0 20px 20px 0;
+  border-left: none;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  color: #FAFAFA;
+  font-family: 'Roboto', sans-serif;
+}
