@@ -2,7 +2,6 @@ import {
   Globe,
   User,
   Flag,
-  MapPin,
   Mail,
   Languages,
   Link2,
@@ -20,11 +19,6 @@ import SocialLinks from '../components/socials/SocialLinks';
 const personalInfo = [
   { label: 'Full Name', value: 'Joseph Akpan Sunday', icon: User },
   { label: 'Nationality', value: 'Nigerian', icon: Flag },
-  {
-    label: 'Address',
-    value: 'No 1. J and J Close off Aker Road, Rumuolumeni, Port Harcourt, Rivers State.',
-    icon: MapPin,
-  },
   { label: 'Email', value: 'josephakpansunday@gmail.com', icon: Mail },
   { label: 'Language', value: 'English', icon: Languages },
   { label: 'GitHub / Portfolio', value: 'nile_dex', href: 'https://github.com/NileDex', icon: Link2 },
@@ -123,12 +117,17 @@ const technicalSkills = [
 
 const interests = ['Computer troubleshooting', 'Problem-solving'];
 
-const references = [
+type Reference = {
+  name: string;
+  title: string;
+  phone?: string;
+  email?: string;
+};
+
+const references: Reference[] = [
   {
     name: 'Engr. Akpan Sunday Charles',
     title: 'Electrical Engineer/Technician',
-    phone: '+234 (0)8033383494',
-    email: 'akpan1705@gmail.com',
   },
 ];
 
@@ -317,9 +316,13 @@ export default function Web2Page() {
                 <div className="min-w-0">
                   <div className="text-sm font-semibold text-white">{name}</div>
                   <div className="text-sm text-zinc-200 mt-0.5">{title}</div>
-                  <div className="text-xs text-zinc-500 font-mono mt-1">
-                    {phone} &middot; {email}
-                  </div>
+                  {(phone || email) && (
+                    <div className="text-xs text-zinc-500 font-mono mt-1">
+                      {phone}
+                      {phone && email && ' \u00B7 '}
+                      {email}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
