@@ -4,7 +4,7 @@ import PageTransition from '../components/PageTransition';
 import SocialLinks from '../components/socials/SocialLinks';
 
 const about =
-  'I am a Web3 developer, blockchain enthusiast, and creative designer with hands-on experience building decentralized applications (dApps) using React, Vite, and Move (Aptos/Cedra), alongside modern frontend technologies. My work spans smart contract-driven interfaces and full-stack dApp architecture, backed by strong technical proficiency across computers, development tooling, and smart devices. I am driven by the intersection of design and decentralized technology, focused on building secure, intuitive experiences for the next generation of Web3 products.';
+  'I am a Web3 developer, QA Engineer, blockchain enthusiast, and creative designer with hands-on experience building decentralized applications (dApps) using React, Vite, and Move (Aptos/Cedra), alongside modern frontend technologies. My work spans smart contract-driven interfaces and full-stack dApp architecture, backed by strong technical proficiency across computers, development tooling, and smart devices. I am driven by the intersection of design and decentralized technology, focused on building secure, intuitive experiences for the next generation of Web3 products.';
 
 const jobs = [
   { role: 'QA Engineer', org: 'Pocket Soc AI', href: 'https://pocketsoc.me/' },
