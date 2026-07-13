@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage';
 import Web2Page from './pages/Web2Page';
 import Web3Page from './pages/Web3Page';
 import CommunityPage from './pages/CommunityPage';
+import NotFound from './pages/NotFound';
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         <Route path="/web2" element={<Web2Page />} />
         <Route path="/web3" element={<Web3Page />} />
         <Route path="/community" element={<CommunityPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
