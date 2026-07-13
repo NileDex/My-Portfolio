@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import Welcome from '../components/Welcome';
 import SocialLinks from '../components/socials/SocialLinks';
 import ViewCounter from '../components/ViewCounter';
+import AchievementCard from '../components/AchievementCard';
 
 export default function HomePage() {
   useEffect(() => {
@@ -23,8 +24,9 @@ export default function HomePage() {
         <Welcome />
       </div>
       <SocialLinks className="mt-16" />
-      <div className="flex justify-center mt-6">
+      <div className="flex flex-col items-center justify-center mt-6 gap-6">
         <ViewCounter />
+        <AchievementCard className="reveal" data-delay="0.3" />
       </div>
     </main>
   );
