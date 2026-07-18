@@ -4,6 +4,7 @@ import Welcome from '../components/Welcome';
 import SocialLinks from '../components/socials/SocialLinks';
 import ViewCounter from '../components/ViewCounter';
 import AchievementCard from '../components/AchievementCard';
+import Marquee from '../components/Marquee';
 
 export default function HomePage() {
   useEffect(() => {
@@ -28,6 +29,7 @@ export default function HomePage() {
         <ViewCounter />
         <AchievementCard className="reveal" data-delay="0.3" />
       </div>
+      <Marquee className="reveal mt-20 -mx-6" data-delay="0.5" />
     </main>
   );
 }
