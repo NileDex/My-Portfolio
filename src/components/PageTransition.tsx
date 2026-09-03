@@ -1,13 +1,10 @@
-import { useLayoutEffect, useRef, type ReactNode } from 'react';
-import gsap from 'gsap';
+import { motion } from 'framer-motion';
+import type { ReactNode } from 'react';
 
 export default function PageTransition({ children }: { children: ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    if (!ref.current) return;
-    gsap.fromTo(ref.current, { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: 'power3.out' });
-  }, []);
-
-  return <div ref={ref}>{children}</div>;
+  return (
+    <motion.div initial={{ x: 32 }} animate={{ x: 0 }} transition={{ type: 'spring', stiffness: 120, damping: 22 }}>
+      {children}
+    </motion.div>
+  );
 }

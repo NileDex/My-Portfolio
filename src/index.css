@@ -10,21 +10,43 @@
   --color-brand-text: #FAFAFA;
 }
 
+:root {
+  --page-bg: #050505;
+  --page-bg-translucent: rgba(5, 5, 5, 0.82);
+  --text-primary: #FAFAFA;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+  --line-soft: rgba(255, 255, 255, 0.1);
+  --surface-soft: rgba(255, 255, 255, 0.03);
+  --surface-hover: rgba(255, 255, 255, 0.07);
+}
+
+html[data-theme='light'] {
+  --page-bg: #F6F6F3;
+  --page-bg-translucent: rgba(246, 246, 243, 0.84);
+  --text-primary: #111111;
+  --text-secondary: #4B5563;
+  --text-muted: #6B7280;
+  --line-soft: rgba(17, 17, 17, 0.12);
+  --surface-soft: rgba(17, 17, 17, 0.035);
+  --surface-hover: rgba(17, 17, 17, 0.075);
+}
+
 .tech-grid {
-  background-color: #050505;
+  background-color: var(--page-bg);
 }
 
 .tech-border {
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--line-soft);
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  background: var(--surface-soft);
   backdrop-filter: blur(10px);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tech-border:hover {
-  border-color: rgba(255, 255, 255, 0.35);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border-color: color-mix(in srgb, var(--text-primary) 35%, transparent);
+  background: var(--surface-hover);
 }
 
 .glow-text {
@@ -35,13 +57,13 @@
 .glass-card {
   position: relative;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.015) 100%);
+  border: 1px solid var(--line-soft);
+  background: var(--surface-soft);
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
   box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.12),
-    0 12px 32px rgba(0, 0, 0, 0.45);
+    inset 0 1px 1px rgba(255, 255, 255, 0.08),
+    0 8px 18px rgba(0, 0, 0, 0.22);
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -62,27 +84,26 @@
   transform: translateY(-4px);
   border-color: rgba(255, 255, 255, 0.28);
   box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.2),
-    6px 0 40px rgba(255, 255, 255, 0.12),
-    0 20px 44px rgba(0, 0, 0, 0.55);
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    0 10px 22px rgba(0, 0, 0, 0.26);
 }
 
 .glass-card:hover::after {
   opacity: 1;
-  box-shadow: 0 0 18px rgba(255, 255, 255, 0.7);
+  box-shadow: none;
 }
 
 /* Circular/square liquid glass buttons, used for the social icons and card icon badges */
 .glass-icon,
 .glass-icon-square {
   position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid var(--line-soft);
+  background: var(--surface-soft);
   backdrop-filter: blur(16px) saturate(160%);
   -webkit-backdrop-filter: blur(16px) saturate(160%);
   box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.15),
-    0 8px 20px rgba(0, 0, 0, 0.4);
+    inset 0 1px 1px rgba(255, 255, 255, 0.08),
+    0 5px 12px rgba(0, 0, 0, 0.2);
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -99,33 +120,44 @@
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.4);
   box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.25),
-    0 0 22px rgba(255, 255, 255, 0.25),
-    0 12px 28px rgba(0, 0, 0, 0.5);
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    0 7px 14px rgba(0, 0, 0, 0.22);
 }
 
 /* Pill-shaped liquid glass, used for the docked category sidebar nav */
 .glass-pill {
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid var(--line-soft);
+  background: var(--surface-soft);
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
   box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.15),
-    0 8px 24px rgba(0, 0, 0, 0.45);
+    inset 0 1px 1px rgba(255, 255, 255, 0.08),
+    0 6px 16px rgba(0, 0, 0, 0.22);
   overflow: hidden;
+}
+
+html[data-theme='light'] .glass-card,
+html[data-theme='light'] .glass-icon,
+html[data-theme='light'] .glass-icon-square,
+html[data-theme='light'] .glass-pill {
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.65),
+    0 4px 10px rgba(17, 17, 17, 0.08);
+}
+
+html[data-theme='light'] .glass-card:hover,
+html[data-theme='light'] .glass-icon:hover,
+html[data-theme='light'] .glass-icon-square:hover {
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.75),
+    0 6px 14px rgba(17, 17, 17, 0.1);
 }
 
 /* Flush against the viewport edge: square off the side touching the edge */
 .glass-pill-dock {
   border-radius: 0 20px 20px 0;
   border-left: none;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
 }
 
 /* Infinite scrolling marquee. Track holds two identical copies of the content,
@@ -167,7 +199,97 @@ body {
   overflow-x: hidden;
 }
 
-body {
-  color: #FAFAFA;
-  font-family: 'Roboto', sans-serif;
+html {
+  scroll-behavior: smooth;
 }
+
+body {
+  background: var(--page-bg);
+  color: var(--text-primary);
+  font-family: 'Roboto', sans-serif;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+html[data-theme='light'] .text-white,
+html[data-theme='light'] .text-zinc-100,
+html[data-theme='light'] .text-zinc-200,
+html[data-theme='light'] .text-zinc-300 {
+  color: var(--text-primary) !important;
+}
+
+html[data-theme='light'] .text-zinc-400,
+html[data-theme='light'] .text-zinc-500 {
+  color: var(--text-secondary) !important;
+}
+
+html[data-theme='light'] .fill-white {
+  fill: var(--text-primary);
+}
+
+html[data-theme='light'] .border-white\/5,
+html[data-theme='light'] .border-white\/10,
+html[data-theme='light'] .border-white\/15,
+html[data-theme='light'] .border-white\/20,
+html[data-theme='light'] .border-white\/25,
+html[data-theme='light'] .border-white\/30 {
+  border-color: var(--line-soft);
+}
+
+html[data-theme='light'] .bg-white\/5,
+html[data-theme='light'] .bg-white\/10,
+html[data-theme='light'] .bg-white\/15,
+html[data-theme='light'] .bg-white\/\[0\.03\],
+html[data-theme='light'] .bg-white\/\[0\.04\],
+html[data-theme='light'] .bg-white\/\[0\.08\] {
+  background-color: var(--surface-soft);
+}
+
+html[data-theme='light'] .bg-\[\#050505\],
+html[data-theme='light'] .bg-\[\#0D0D0D\],
+html[data-theme='light'] .bg-\[\#0F0F0F\] {
+  background-color: var(--page-bg);
+}
+
+/* Ensure Share Modal keeps its dark glass card, crisp white text & button in both light and dark mode */
+html[data-theme='light'] .share-modal-dark {
+  background-color: #0e0e0e !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+html[data-theme='light'] .share-modal-dark .text-white,
+html[data-theme='light'] .share-modal-dark h3,
+html[data-theme='light'] .share-modal-dark span.text-white,
+html[data-theme='light'] .share-modal-dark svg.text-white {
+  color: #ffffff !important;
+}
+
+html[data-theme='light'] .share-modal-dark .text-zinc-400,
+html[data-theme='light'] .share-modal-dark p,
+html[data-theme='light'] .share-modal-dark .text-zinc-300 {
+  color: #a1a1aa !important;
+}
+
+html[data-theme='light'] .share-modal-dark .bg-white {
+  background-color: #ffffff !important;
+}
+
+html[data-theme='light'] .share-modal-dark .text-black,
+html[data-theme='light'] .share-modal-dark button .text-black,
+html[data-theme='light'] .share-modal-dark button span.text-black {
+  color: #000000 !important;
+}
+
+html[data-theme='light'] .share-modal-dark .border-white\/10,
+html[data-theme='light'] .share-modal-dark .border-white\/15 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html[data-theme='light'] .share-modal-dark .bg-white\/5,
+html[data-theme='light'] .share-modal-dark .bg-white\/10,
+html[data-theme='light'] .share-modal-dark .bg-white\/\[0\.04\] {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+

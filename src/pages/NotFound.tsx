@@ -1,23 +1,9 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Compass, Home } from 'lucide-react';
-import gsap from 'gsap';
+import { Home } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function NotFound() {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    // Reveal animation matching the portfolio's GSAP pattern
-    document.querySelectorAll<HTMLElement>('.reveal').forEach((el) => {
-      gsap.to(el, {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        delay: parseFloat(el.dataset.delay ?? '0'),
-        ease: 'expo.out',
-      });
-    });
-  }, []);
 
   return (
     <main className="min-h-screen flex flex-col justify-center items-center bg-[#050505] text-white px-6 py-12 relative overflow-hidden font-sans">
@@ -59,7 +45,12 @@ export default function NotFound() {
 
       <div className="max-w-xl w-full text-center z-10 flex flex-col items-center">
         {/* Spaceship Wrapper */}
-        <div className="reveal animate-spaceship-float mb-8" data-delay="0">
+        <motion.div
+          className="animate-spaceship-float mb-8"
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
+          transition={{ type: 'spring', stiffness: 120, damping: 20 }}
+        >
           <svg
             viewBox="0 0 200 200"
             className="w-48 h-48 md:w-56 md:h-56 filter drop-shadow-[0_0_35px_rgba(245,158,11,0.25)]"
@@ -118,20 +109,30 @@ export default function NotFound() {
             <circle cx="100" cy="125" r="3" fill="#94a3b8" />
             <circle cx="100" cy="135" r="3" fill="#94a3b8" />
           </svg>
-        </div>
+        </motion.div>
 
         {/* 404 Text */}
-        <h1 className="reveal text-8xl md:text-9xl font-black tracking-tight text-white mb-2 glow-text" data-delay="0.15">
+        <motion.h1
+          className="text-8xl md:text-9xl font-black tracking-tight text-white mb-2 glow-text"
+          initial={{ y: 18 }}
+          animate={{ y: 0 }}
+          transition={{ type: 'spring', stiffness: 120, damping: 22, delay: 0.05 }}
+        >
           404
-        </h1>
+        </motion.h1>
 
         {/* Description */}
-        <p className="reveal text-sm md:text-base text-zinc-400 font-medium leading-relaxed mb-10 max-w-md" data-delay="0.3">
+        <motion.p
+          className="text-sm md:text-base text-zinc-400 font-medium leading-relaxed mb-10 max-w-md"
+          initial={{ y: 16 }}
+          animate={{ y: 0 }}
+          transition={{ type: 'spring', stiffness: 120, damping: 22, delay: 0.1 }}
+        >
           Your vessel has drifted into uncharted sectors of deep space. The coordinates you provided do not exist in our system logs.
-        </p>
+        </motion.p>
 
         {/* Go Home Button */}
-        <div className="reveal" data-delay="0.45">
+        <motion.div initial={{ y: 14 }} animate={{ y: 0 }} transition={{ type: 'spring', stiffness: 120, damping: 22, delay: 0.15 }}>
           <button
             onClick={() => navigate('/')}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20 text-sm font-semibold text-white transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_0_25px_rgba(255,255,255,0.1)] active:translate-y-[1px] cursor-pointer"
@@ -139,7 +140,7 @@ export default function NotFound() {
             <Home className="w-4 h-4" />
             <span>Go back home</span>
           </button>
-        </div>
+        </motion.div>
       </div>
     </main>
   );

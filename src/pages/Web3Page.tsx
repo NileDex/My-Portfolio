@@ -1,7 +1,7 @@
 import { Blocks, Award, Briefcase, PenTool, ExternalLink } from 'lucide-react';
 import Dock from '../components/Dock';
 import PageTransition from '../components/PageTransition';
-import SocialLinks from '../components/socials/SocialLinks';
+
 
 const about =
   'I am a Web3 developer, QA Engineer, blockchain enthusiast, and creative designer with hands-on experience building decentralized applications (dApps) using React, Vite, and Move (Aptos/Cedra), alongside modern frontend technologies. My work spans smart contract-driven interfaces and full-stack dApp architecture, backed by strong technical proficiency across computers, development tooling, and smart devices. I am driven by the intersection of design and decentralized technology, focused on building secure, intuitive experiences for the next generation of Web3 products.';
@@ -80,8 +80,9 @@ export default function Web3Page() {
       <Dock />
 
       <PageTransition>
-        <div className="pl-16 sm:pl-24 md:pl-60 pr-6 sm:pr-12 pt-16 sm:pt-20 max-w-6xl">
-          <div className="flex items-center gap-4 mb-10">
+        <div className="w-full pl-16 sm:pl-24 md:pl-60 pr-4 sm:pr-8 lg:pr-16 xl:pr-20 2xl:pr-24 pt-12 sm:pt-16">
+          <div className="flex items-center gap-3 sm:gap-4 mb-8 sm:mb-10">
+
             <div className="glass-icon-square w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center flex-shrink-0">
               <Blocks className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
             </div>
@@ -93,14 +94,14 @@ export default function Web3Page() {
             </div>
           </div>
 
-          <section className="mb-10 pb-10 border-b border-white/10">
+          <section className="mb-10 pb-10">
             <h2 className="text-xs tracking-[0.3em] text-zinc-500 font-mono font-bold mb-4">About</h2>
-            <p className="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-2xl">{about}</p>
+            <p className="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-3xl">{about}</p>
           </section>
 
-          <section className="mb-10 pb-10 border-b border-white/10">
+          <section className="mb-10 pb-10">
             <h2 className="text-xs tracking-[0.3em] text-zinc-500 font-mono font-bold mb-6">Jobs</h2>
-            <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-6">
               {jobs.map(({ role, org, href }) => (
                 <div key={role} className="flex items-start gap-3">
                   <div className="glass-icon-square w-9 h-9 flex items-center justify-center flex-shrink-0">
@@ -127,9 +128,9 @@ export default function Web3Page() {
             </div>
           </section>
 
-          <section className="mb-10 pb-10 border-b border-white/10">
+          <section className="mb-10 pb-10">
             <h2 className="text-xs tracking-[0.3em] text-zinc-500 font-mono font-bold mb-6">Projects</h2>
-            <div className="grid sm:grid-cols-2 gap-6 max-w-5xl">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {projects.map(({ title, description, href, image }) => (
                 <a
                   key={title}
@@ -158,9 +159,10 @@ export default function Web3Page() {
             </div>
           </section>
 
-          <section className="mb-10 pb-10 border-b border-white/10">
+          <section className="mb-10 pb-10">
             <h2 className="text-xs tracking-[0.3em] text-zinc-500 font-mono font-bold mb-6">Roles &amp; Community</h2>
-            <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-x-10 gap-y-6">
+
               {roles.map(({ title, org }) => (
                 <div key={title} className="flex items-start gap-3">
                   <div className="glass-icon-square w-9 h-9 flex items-center justify-center flex-shrink-0">
@@ -201,9 +203,6 @@ export default function Web3Page() {
         </div>
       </PageTransition>
 
-      <div className="px-6 mt-16">
-        <SocialLinks />
-      </div>
     </main>
   );
 }

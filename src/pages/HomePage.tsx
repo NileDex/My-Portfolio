@@ -1,35 +1,32 @@
-import { useEffect } from 'react';
-import gsap from 'gsap';
 import Welcome from '../components/Welcome';
 import SocialLinks from '../components/socials/SocialLinks';
 import ViewCounter from '../components/ViewCounter';
-import AchievementCard from '../components/AchievementCard';
 import Marquee from '../components/Marquee';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import OffersSection from '../components/home/OffersSection';
+import EducatorSection from '../components/home/EducatorSection';
 
 export default function HomePage() {
-  useEffect(() => {
-    document.querySelectorAll<HTMLElement>('.reveal').forEach((el) => {
-      gsap.to(el, {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        delay: parseFloat(el.dataset.delay ?? '0'),
-        ease: 'expo.out',
-      });
-    });
-  }, []);
-
   return (
-    <main className="min-h-screen flex flex-col max-w-7xl mx-auto px-6 py-24">
-      <div className="flex-1 flex flex-col justify-center">
-        <Welcome />
+    <main className="min-h-screen flex flex-col w-full pb-24">
+      <Header />
+      <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24 pt-6 sm:pt-10">
+        <div className="flex-1 flex flex-col justify-center">
+          <Welcome />
+        </div>
+
+        <SocialLinks className="mt-16" />
+        <div className="flex flex-col items-center justify-center mt-6 gap-6">
+          <ViewCounter />
+        </div>
       </div>
-      <SocialLinks className="mt-16" />
-      <div className="flex flex-col items-center justify-center mt-6 gap-6">
-        <ViewCounter />
-        <AchievementCard className="reveal" data-delay="0.3" />
-      </div>
-      <Marquee className="reveal mt-20 -mx-6" data-delay="0.5" />
+
+
+      <Marquee className="mt-20" />
+      <OffersSection />
+      <EducatorSection />
+      <Footer />
     </main>
   );
 }

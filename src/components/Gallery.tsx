@@ -12,7 +12,8 @@ const placeholderImages: GalleryItem[] = Array.from({ length: 8 }, (_, i) => ({ 
 
 export default function Gallery({ images = placeholderImages }: GalleryProps) {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+
       {images.map(({ src, label }, i) => (
         <div key={`${src}-${i}`} className="glass-icon-square aspect-square overflow-hidden relative">
           {src.startsWith('placeholder-') ? (
